@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_marginTop="40dp"
+    android:layout_marginLeft="20dp"
+    android:layout_marginRight="20dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="팀 만들기"
+        android:textColor="#121212"
+        android:textSize="24sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="룸메이트와 함깨 관리할 팀을 만들어주세요\n"
+        android:textColor="#121212"
+        android:textSize="14dp" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/edtLoginTeam"
+        android:hint="팀명 작성하기" />
+
+    <Button
+        android:id="@+id/loginTeam"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_marginTop="300dp"
+        android:background="#FF7900"
+        android:text="만들기"
+        android:textColor="#FBF3F3"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+</LinearLayout>
