@@ -35,7 +35,7 @@
             android:textColor="#FFFFFF"
             android:textSize="20sp" />
 
-        <!-- 닉네임 -->
+        <!-- 닉네임
         <TextView
             android:id="@+id/nickname"
             android:layout_width="wrap_content"
@@ -43,8 +43,39 @@
             android:text="닉네임"
             android:textSize="16sp"
             android:textColor="#FFFFFF"
-            />
+            /> -->
+        <!--<LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+        </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/plusNickname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:src="@drawable/plus" /> -->
+        <LinearLayout
+            android:id="@+id/nicknameContainer"
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:scrollbars="horizontal"
+            android:gravity="start|center_vertical"
+            android:layout_height="wrap_content">
+            <!--친구 닉네임추가, 내 닉네임도... --></LinearLayout>
+
+        <ImageButton
+            android:id="@+id/plusNickname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:src="@drawable/plus" />
+
+
     </LinearLayout>
+
 
     <!-- 물품 섹션 -->
     <TextView

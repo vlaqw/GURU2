@@ -39,7 +39,16 @@ dependencies {
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
-    //implementation (files("libs/mysql-connector-java-9.2.0.jar"))
+    //implementation (files("mysql-connector-java-8.0.26.jar"))
+    //implementation("mysql:mysql-connector-java-5.1.49.jar")
+    implementation (files("libs/mysql-connector-java-5.1.49.jar"))
+    //implementation fileTree(dir: "libs", include: ["mysql-connector-java-5.1.49.jar"])
+    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4")
+
+
+    //implementation("com.github.mcxiaoke:mysql-connector-android:2.0.1")
+    //C:\ProgramData\Microsoft\Windows\Start Menu\Programs\MySQL\MySQL Server 5.7
+    //mysql-connector-java-5.1.49.jar
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)

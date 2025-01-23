@@ -5,6 +5,7 @@ import android.graphics.Color
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -17,9 +18,16 @@ import java.sql.Connection
 import java.sql.DriverManager
 import java.sql.PreparedStatement
 
+
 class TeamMateLogin : ComponentActivity() {
 
-    /*private val jdbcUrl = "jdbc:mysql://check_list_db" // 서버 IP 및 포트 설정
+    //쓰레드로 진행해보기
+
+    //private val jdbcUrl = "jdbc:mysql://check_list_db" // 서버 IP 및 포트 설정
+    private val jdbcUrl = "jdbc:mysql://192.168.45.227:3306/check_list_db"
+    //private val jdbcUrl = "jdbc:mysql://192.168.45.227:3306/check_list_db?useSSL=false&allowPublicKeyRetrieval=true"
+
+    //192.168.45.227
     private val dbUser = "root" // DB 사용자 이름 , 오류가 있으니 수정 요망
     private val dbPassword = "123456" // DB 비밀번호, 오류 있음(원인 모름)*/
 
@@ -61,48 +69,70 @@ class TeamMateLogin : ComponentActivity() {
             if (nickname.isEmpty()) {
                 Toast.makeText(this, "닉네임을 입력해주세요!", Toast.LENGTH_SHORT).show()
             } else {
-                // MySQL 데이터 저장 (코루틴으로 백그라운드 작업 처리)
-                /*CoroutineScope(Dispatchers.IO).launch {
+                 // MySQL 데이터 저장 (코루틴으로 백그라운드 작업 처리)
+                CoroutineScope(Dispatchers.IO).launch {
                     val isSuccess = saveToDatabase(teamName, nickname)
                     runOnUiThread {
-                        if (isSuccess) { */
+                        if (isSuccess) {
                             Toast.makeText(this@TeamMateLogin, "저장 성공!", Toast.LENGTH_SHORT).show()
                             // 다음 화면으로 이동
                             val intent = Intent(this@TeamMateLogin, Home::class.java)
                             intent.putExtra("TEAM_NAME", teamName)
                             intent.putExtra("NICKNAME", nickname)
                             startActivity(intent)
-                        } /*else {
+                        } else {
                             Toast.makeText(this@TeamMateLogin, "저장 실패! 다시 시도하세요.", Toast.LENGTH_SHORT)
                                 .show()
                         }
                     }
                 }
-            }*/
+            }
         }
     }
-/*
-    // MySQL 데이터 저장 함수
+
+
+
     private fun saveToDatabase(teamName: String?, nickname: String): Boolean {
         return try {
-            // MySQL JDBC 드라이버 로드
-            Class.forName("com.mysql.cj.jdbc.Driver")
-
-            // 연결 설정
+            //Class.forName("com.mysql.cj.jdbc.Driver") //이것으로 인해 연결이 안되었음....(6시간의 사투...)
+            Class.forName("com.mysql.jdbc.Driver");
             DriverManager.getConnection(jdbcUrl, dbUser, dbPassword).use { connection ->
-                val query = "INSERT INTO check_list (team_name, team_mate) VALUES (?, ?)"
-                val statement: PreparedStatement = connection.prepareStatement(query)
-
-                // 데이터 바인딩
+                val query = "INSERT INTO check_list (team_name, team_mate) VALUES (?, ?)" //db저장
+                val statement = connection.prepareStatement(query)
                 statement.setString(1, teamName)
                 statement.setString(2, nickname)
-
-                // 쿼리 실행
                 statement.executeUpdate() > 0
             }
         } catch (e: Exception) {
-            e.printStackTrace()
+            e.printStackTrace() // 자세한 오류 로그 출력
+
+            Log.e("DatabaseError", "MySQL Exception: ${e.message}") // 로그를 Android Logcat에서 확인 가능
             false
         }
-    }*/
+    }
 }
+
+/*// MySQL 데이터 저장 함수
+   private fun saveToDatabase(teamName: String?, nickname: String): Boolean {
+       return try {
+           // MySQL JDBC 드라이버 로드
+           Class.forName("com.mysql.cj.jdbc.Driver")
+
+           // 연결 설정
+           DriverManager.getConnection(jdbcUrl, dbUser, dbPassword).use { connection ->
+               val query = "INSERT INTO check_list (team_name, team_mate) VALUES (?, ?)"
+               val statement: PreparedStatement = connection.prepareStatement(query)
+
+               // 데이터 바인딩
+               statement.setString(1, teamName)
+               statement.setString(2, nickname)
+
+               // 쿼리 실행
+               statement.executeUpdate() > 0
+           }
+       } catch (e: Exception) {
+           e.printStackTrace()
+           false
+       }
+   }
+}*/
