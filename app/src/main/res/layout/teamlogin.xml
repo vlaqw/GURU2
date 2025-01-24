@@ -29,10 +29,9 @@
         android:hint="팀명 작성하기" />
 
     <Button
-        android:id="@+id/loginTeam"
+        android:id="@+id/login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
         android:layout_marginTop="300dp"
         android:background="#FF7900"
         android:text="만들기"

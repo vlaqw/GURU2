@@ -16,7 +16,7 @@ class TeamLogin : ComponentActivity() {
         setContentView(R.layout.teamlogin)
 
         val teamNameEditText = findViewById<EditText>(R.id.edtLoginTeam)
-        val proceedTeamButton = findViewById<Button>(R.id.loginTeam)
+        val proceedTeamButton = findViewById<Button>(R.id.login)
 
         // 초기 버튼 상태 설정
         proceedTeamButton.isEnabled = false

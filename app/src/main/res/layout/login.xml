@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -12,41 +10,40 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="공동생활을 더욱"
+        android:text="로그인 하기"
         android:textColor="#121212"
         android:textSize="24sp" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="스마트하게 도와줄게요 \n"
+        android:text="팀 이름을 입력해주세요."
         android:textColor="#121212"
-        android:textSize="24sp" />
+        android:textSize="14dp" />
 
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/android" />
-
-    <Button
-        android:id="@+id/makingTeam"
+    <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#FF7900"
-        android:text="팀 만들기"
-        android:textColor="#FBF3F3"
-        android:textSize="20sp"
-        android:textStyle="bold" />
+        android:textSize="20dp"
+        android:hint="팀 이름"
+        android:id="@+id/teamName"/>
 
-    <Button
-        android:id="@+id/login"
+    <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:id="@+id/nicknameEditText"
+        android:textSize="20dp"
+        android:hint="닉네임" />
+
+    <Button
+        android:id="@+id/loginTeamMate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_marginTop="300dp"
         android:background="#FF7900"
         android:text="로그인"
-        android:textColor="#F8F8F8"
-
+        android:textColor="#FBF3F3"
         android:textSize="20sp"
         android:textStyle="bold" />
 
