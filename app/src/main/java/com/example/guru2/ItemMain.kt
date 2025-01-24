@@ -29,14 +29,14 @@ class ItemMain : AppCompatActivity() {
         recyclerView = findViewById(R.id.recyclerView)
         val fab: FloatingActionButton = findViewById(R.id.fab_add_item)
 
-        // Initialize database helper
+        // dbhelper 초기화
         databaseHelper = DatabaseHelper(this)
 
-        // Load items from database
+        // 데이터베이스에서 items 불러오기
         itemList.addAll(databaseHelper.getItems())
 
 
-        // Floating Action Button click listener
+        // 플로팅액션버튼
         fab.setOnClickListener {
             showAddItemDialog()
         }
@@ -68,7 +68,7 @@ class ItemMain : AppCompatActivity() {
         val memo = dialogView.findViewById<EditText>(R.id.et_memo)
         val addButton = dialogView.findViewById<Button>(R.id.btn_add)
 
-        // Set up Spinner
+        // 스피너 설정
         ArrayAdapter.createFromResource(
             this,
             R.array.categories_array, // Define categories in res/values/strings.xml
