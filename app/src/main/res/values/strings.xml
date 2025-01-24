@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">GURU2</string>
+
+    <string-array name="categories_array">
+        <item>식품</item>
+        <item>청소용품</item>
+        <item>생활용품</item>
+        <item>주방용품</item>
+        <!-- 필요한 카테고리들을 추가하세요 -->
+    </string-array>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>
