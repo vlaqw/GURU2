@@ -61,6 +61,15 @@ class ItemMain : AppCompatActivity() {
             startActivity(homeIntent)
         }
 
+        //회계 페이지로 이동...
+        accountButton.setOnClickListener {
+            val intent = Intent(this@ItemMain, AccountMain::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
+            intent.putExtra("TEAM_NAME", teamName) // 팀 이름을 추가
+            intent.putExtra("NICKNAME", nickname) // 닉네임을 추가
+            startActivity(intent)
+        }
+
 
         // 플로팅액션버튼
         fab.setOnClickListener {

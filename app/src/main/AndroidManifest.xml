@@ -41,6 +41,8 @@
 
         <activity android:name=".ItemMain"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+
+        <activity android:name=".AccountMain"/>
     </application>
 
 
