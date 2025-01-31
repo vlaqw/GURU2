@@ -38,13 +38,15 @@
         android:hint="메모"
         android:inputType="text" />
 
+    <!-- 수정/삭제 버튼을 LinerLayout으로 수평정렬 -->
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_gravity="center">
 
-    <Button
+        <!-- 수정 버튼 -->
+        <Button
         android:id="@+id/btn_edit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -52,7 +54,9 @@
         android:text="수정"
         android:backgroundTint="#FF6200EE"
         android:textColor="#FFFFFF" />
-    <Button
+
+        <!-- 삭제 버튼 -->
+        <Button
         android:id="@+id/btn_delte"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

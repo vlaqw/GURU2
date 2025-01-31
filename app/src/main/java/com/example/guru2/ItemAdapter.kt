@@ -41,6 +41,13 @@
 
         override fun getItemCount(): Int = items.size
 
+        fun updateList(newList: MutableList<Item>) {
+            items.clear()  // 기존 아이템을 삭제
+            items.addAll(newList) // 새 아이템 추가
+            notifyDataSetChanged() // RecyclerView 갱신
+        }
+
+
         private fun showEditDialog(context: Context, item: Item, position: Int) {
             val dialogView = LayoutInflater.from(context).inflate(R.layout.dialog_edit_item, null)
             val itemName = dialogView.findViewById<EditText>(R.id.et_item_name)

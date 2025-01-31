@@ -15,7 +15,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
         android:textOff="구매필요"
-        android:textOn="구매완료" />
+        android:textOn="구매완료"
+        android:background="@drawable/toggle_selector" />
 
     <!-- 아이템 내용 -->
     <LinearLayout
@@ -23,48 +24,59 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:orientation="vertical"
+        android:padding="2dp"
         android:paddingStart="8dp">
 
 
-            <TextView
-                android:id="@+id/tv_item_category"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingStart="8dp"
-                android:paddingEnd="8dp"
-                android:text="카테고리"
-                android:textSize="14sp"
-                android:textColor="#666666" />
+        <TextView
+            android:id="@+id/tv_item_category"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#FAF6F6"
+            android:backgroundTint="#FAEEEE"
+            android:padding="1dp"
+            android:text="카테고리"
+            android:textColor="#666666"
+            android:textSize="14sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingEnd="12dp">
 
             <TextView
                 android:id="@+id/tv_item_name"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="1dp"
                 android:text="아이템 이름"
-                android:paddingStart="8dp"
-                android:paddingEnd="8dp"
-                android:textSize="16sp"
-
-                android:textColor="#000000" />
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/tv_item_quantity"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingStart="8dp"
-                android:paddingEnd="8dp"
+                android:layout_gravity="center"
+                android:layout_weight="1"
                 android:text="수량"
-                android:textSize="14sp"
-                android:textColor="#666666" />
+                android:textAlignment="viewEnd"
+                android:textColor="#666666"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
         <TextView
             android:id="@+id/tv_item_memo"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:padding="1dp"
             android:text="메모"
-            android:paddingStart="8dp"
-            android:paddingEnd="8dp"
-            android:textSize="14sp"
-            android:textColor="#666666" />
+            android:textColor="#666666"
+            android:textSize="14sp" />
 
     </LinearLayout>
 

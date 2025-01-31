@@ -20,7 +20,8 @@ class ItemMain : AppCompatActivity() {
     private lateinit var adapter: ItemAdapter
     private lateinit var databaseHelper: DatabaseHelper
     private val itemList = mutableListOf<Item>()
-    private lateinit var chk : CheckBox
+    private lateinit var chkNeedeed : CheckBox
+    private lateinit var chkCompleted : CheckBox
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,6 +29,8 @@ class ItemMain : AppCompatActivity() {
 
         recyclerView = findViewById(R.id.recyclerView)
         val fab: FloatingActionButton = findViewById(R.id.fab_add_item)
+        chkNeedeed = findViewById(R.id.checkBox_needeed)
+        chkCompleted = findViewById(R.id.checkBox_completed)
 
         // dbhelper 초기화
         databaseHelper = DatabaseHelper(this)
@@ -41,17 +44,53 @@ class ItemMain : AppCompatActivity() {
             showAddItemDialog()
         }
 
-       chk = findViewById(R.id.checkBox)
-        chk.setOnCheckedChangeListener(){ compoundButton: CompoundButton, b: Boolean ->
+        chkNeedeed.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                // 구매 필요 목록 필터링
+                filterItemsByCompletion(false)
+                chkCompleted.isChecked = false  // 구매 완료 체크박스 해제
+            } else {
+                // 체크박스가 해제되면 모든 아이템을 다시 보여줌
+                adapter.updateList(itemList)
+            }
+        }
 
-            if(chk.isChecked == true ) {
-                recyclerView.visibility = android.view.View.VISIBLE
+        chkCompleted.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                // 구매 완료 목록 필터링
+                filterItemsByCompletion(true)
+                chkNeedeed.isChecked = false  // 구매 필요 체크박스 해제
+            } else {
+                // 체크박스가 해제되면 모든 아이템을 다시 보여줌
+                adapter.updateList(itemList)
             }
         }
 
         adapter = ItemAdapter(itemList, databaseHelper)
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = adapter
+
+        val btnAll = findViewById<Button>(R.id.btn_all)
+        val btnFood = findViewById<Button>(R.id.btn_food)
+        val btnDaily = findViewById<Button>(R.id.btn_daily)
+        val btnClean = findViewById<Button>(R.id.btn_clean)
+        val btnKitchen = findViewById<Button>(R.id.btn_kitchen)
+
+        btnAll.setOnClickListener {
+            filterItems("전체")
+        }
+        btnFood.setOnClickListener {
+            filterItems("식품")
+        }
+        btnDaily.setOnClickListener {
+            filterItems("생활용품")
+        }
+        btnClean.setOnClickListener {
+            filterItems("청소용품")
+        }
+        btnKitchen.setOnClickListener {
+            filterItems("주방용품")
+        }
     }
 
    /* private fun loadItemsFromDatabase() {
@@ -59,6 +98,23 @@ class ItemMain : AppCompatActivity() {
         itemList.addAll(databaseHelper.getItems())  // 데이터베이스에서 불러온 데이터로 목록 초기화
         adapter.notifyDataSetChanged()  // 데이터가 변경되었음을 알림
     }*/
+
+    private fun filterItems(category: String) {
+        val filteredList = if (category == "전체") {
+            databaseHelper.getItems()   //전체 아이템 조회
+        } else {
+            databaseHelper.getItemsByCategory(category)   //특정 카테고리 아이템 조회
+        }
+        itemList.clear()
+        itemList.addAll(filteredList)
+        adapter.notifyDataSetChanged()   //RecyclerView 갱신
+    }
+
+
+    private fun filterItemsByCompletion(isCompleted: Boolean) {
+        val filteredList = itemList.filter { it.isCompleted == isCompleted }
+        adapter.updateList(filteredList.toMutableList())  // 필터링된 리스트로 어댑터 갱신
+    }
 
     private fun showAddItemDialog() {
         val dialogView = LayoutInflater.from(this).inflate(R.layout.dialog_add_item, null)

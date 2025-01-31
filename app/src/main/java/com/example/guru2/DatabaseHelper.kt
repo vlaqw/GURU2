@@ -58,6 +58,28 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         return items
     }
 
+    @SuppressLint("Range")
+    fun getItemsByCategory(category: String): List<Item> {
+        val items = mutableListOf<Item>()
+        val db = readableDatabase
+        val cursor = db.rawQuery("SELECT * FROM $TABLE_NAME WHERE $COLUMN_CATEGORY = ?", arrayOf(category))
+        if (cursor.moveToFirst()) {
+            do {
+                val id = cursor.getInt(cursor.getColumnIndex(COLUMN_ID))
+                val name = cursor.getString(cursor.getColumnIndex(COLUMN_NAME))
+                val category = cursor.getString(cursor.getColumnIndex(COLUMN_CATEGORY))
+                val quantity = cursor.getInt(cursor.getColumnIndex(COLUMN_QUANTITY))
+                val memo = cursor.getString(cursor.getColumnIndex(COLUMN_MEMO))
+                val isCompleted = cursor.getInt(cursor.getColumnIndex(COLUMN_IS_COMPLETED)) == 1
+
+                items.add(Item(id, name, category, quantity, memo, isCompleted))
+            } while (cursor.moveToNext())
+        }
+        cursor.close()
+        db.close()
+        return items
+    }
+
     fun addItem(item: Item) {
         val db = writableDatabase
         val values = ContentValues().apply {
