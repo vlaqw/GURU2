@@ -7,6 +7,7 @@ import android.widget.Button
 import android.widget.CheckBox
 import android.widget.CompoundButton
 import android.widget.EditText
+import android.widget.ImageButton
 import android.widget.Spinner
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
@@ -14,6 +15,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import android.content.Intent
 
 class ItemMain : AppCompatActivity() {
     private lateinit var recyclerView: RecyclerView
@@ -31,12 +33,30 @@ class ItemMain : AppCompatActivity() {
         val fab: FloatingActionButton = findViewById(R.id.fab_add_item)
         chkNeedeed = findViewById(R.id.checkBox_needeed)
         chkCompleted = findViewById(R.id.checkBox_completed)
+        val homeButton = findViewById<ImageButton>(R.id.homeImage) //물품 이미지
+        val accountButton = findViewById<ImageButton>(R.id.accountingImage) //회계 이미지
+
+        // Intent로부터 teamName과 nickname을 받는다
+        val teamName = intent.getStringExtra("TEAM_NAME") ?: return
+        val nickname = intent.getStringExtra("NICKNAME") ?: return
 
         // dbhelper 초기화
         databaseHelper = DatabaseHelper(this)
 
         // 데이터베이스에서 items 불러오기
         itemList.addAll(databaseHelper.getItems())
+
+
+        //홈버튼이 눌렀을 때,
+        homeButton.setOnClickListener {
+            val homeIntent = Intent(this, Home::class.java)
+            homeIntent.putExtra("TEAM_NAME", teamName)
+            homeIntent.putExtra("NICKNAME", nickname)
+            startActivity(homeIntent)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
+
+
+        }
 
 
         // 플로팅액션버튼

@@ -8,8 +8,11 @@
     <!-- 물품 이름 입력 -->
     <EditText
         android:id="@+id/et_item_name"
+        android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:maxLines="1"
+        android:textSize="14sp"
         android:hint="물품 이름"
         android:inputType="text" />
 
@@ -23,18 +26,22 @@
     <!-- 수량 입력 -->
     <EditText
         android:id="@+id/et_quantity"
+        android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:maxLines="1"
+        android:textSize="14sp"
         android:hint="수량"
         android:inputType="number" />
 
     <!-- 메모 입력 -->
     <EditText
         android:id="@+id/et_memo"
+        android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:maxLines="1"
+        android:textSize="14sp"
         android:hint="메모"
         android:inputType="text" />
 
@@ -46,6 +53,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="등록"
-        android:backgroundTint="#FF6200EE"
+        android:background="@drawable/button_round"
         android:textColor="#FFFFFF" />
 </LinearLayout>

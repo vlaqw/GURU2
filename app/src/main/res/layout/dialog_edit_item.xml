@@ -52,7 +52,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="수정"
-        android:backgroundTint="#FF6200EE"
+            android:background="@drawable/button_round"
         android:textColor="#FFFFFF" />
 
         <!-- 삭제 버튼 -->
@@ -63,7 +63,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginLeft="10dp"
         android:text="삭제"
-        android:backgroundTint="#FF6200EE"
+            android:background="@drawable/button_round"
         android:textColor="#FFFFFF" />
 
     </LinearLayout>

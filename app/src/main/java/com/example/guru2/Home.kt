@@ -12,6 +12,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import java.sql.DriverManager
 import java.util.concurrent.Executors
+import android.content.Intent
 
 
 
@@ -55,6 +56,8 @@ class Home : ComponentActivity() {
         val addNicknameButton = findViewById<ImageButton>(R.id.plusNickname) //새로운 친구를 초대할 때, 사용하는 버튼
         val memoEditText = findViewById<EditText>(R.id.memoEditText) //메모 텍스트, 이미 mysql에 저장된 정보면 바로 나타나고, 사용자가 쉽게 수정할 수 있음.
         val saveMemoButton = findViewById<Button>(R.id.saveMemo) //사용자 메모 수정 후 버튼을 이용해서 저장할 수 있음.(자동으로 같은 팀 한정으로 팀 메모가 업데이트 됨)
+        val itemButton = findViewById<ImageButton>(R.id.itemImage) //물품 이미지
+        val accountButton = findViewById<ImageButton>(R.id.accountingImage) //회계 이미지
 
         val teamName = intent.getStringExtra("TEAM_NAME") ?: return  //인텐트를 통해..Login에서 받아온 팀 이름.
         val initialNickname = intent.getStringExtra("NICKNAME") ?: return //인텐트를 통해..Login에서 받아온 팀 닉네임..
@@ -82,6 +85,15 @@ class Home : ComponentActivity() {
                 Toast.makeText(this, "메모를 입력하세요!", Toast.LENGTH_SHORT).show()
             }
         }
+       //물품 페이지로 이동...
+        itemButton.setOnClickListener {
+            val intent = Intent(this@Home, ItemMain::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
+            intent.putExtra("TEAM_NAME", teamName) // 팀 이름을 추가
+            intent.putExtra("NICKNAME", initialNickname) // 닉네임을 추가
+            startActivity(intent)
+        }
+
     }
  //메모 업데이트를 하는 함수
     private fun updateMemo(teamName: String, newMemo: String) {
@@ -279,5 +291,7 @@ class Home : ComponentActivity() {
         }
     }
 }
+
+
 
 

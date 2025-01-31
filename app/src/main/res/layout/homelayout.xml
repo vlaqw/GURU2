@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_marginTop="40dp"
     android:layout_marginLeft="20dp"
@@ -135,14 +136,15 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="80dp"
-            android:layout_marginTop="90dp"
+            android:layout_marginTop="100dp"
             android:src="@drawable/white_box" />
 
         <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="105dp"
+            android:layout_marginTop="115dp"
             android:layout_marginLeft="20dp"
+            android:id="@+id/homeImage"
             android:background="@android:color/transparent"
             android:src="@drawable/home_show"/>
 
@@ -150,7 +152,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="165dp"
-            android:layout_marginTop="105dp"
+            android:layout_marginTop="115dp"
+            android:id="@+id/itemImage"
             android:background="@android:color/transparent"
             android:src="@drawable/thing_not_show" />
 
@@ -158,7 +161,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="300dp"
-            android:layout_marginTop="105dp"
+            android:layout_marginTop="115dp"
+            android:id="@+id/accountingImage"
             android:background="@android:color/transparent"
             android:src="@drawable/accounting_not_show" />
 
@@ -167,5 +171,13 @@
 
 </LinearLayout>
 
+    <!-- NavHostFragment 추가 오류로 중단.
+     <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/nav_host_fragment"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:defaultNavHost="true"
+        app:navGraph="@navigation/nav_graph" /> -->
 
 </LinearLayout>

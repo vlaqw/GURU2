@@ -6,14 +6,14 @@ import androidx.appcompat.app.AppCompatActivity
 import android.widget.Button
 import com.example.guru2.ItemMain
 import com.example.guru2.R
-
+/*
 class ItemMainActivity : AppCompatActivity() {
 
     private lateinit var buttonFragment: Button
     private lateinit var buttonItemMain: Button
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_main) //시작 참고로 이 화면은 필요없음.(연결 이후)
 
         buttonFragment = findViewById(R.id.btn_manage_items) //버튼 ID
         buttonFragment.setOnClickListener {
@@ -31,4 +31,4 @@ class ItemMainActivity : AppCompatActivity() {
             startActivity(intent)
         }
     }
-}
+}*/

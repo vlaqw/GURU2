@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph">
+
+    <!-- HomeFragment 정의 -->
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.guru2.HomeFragment"
+        android:label="Home">
+        <!-- HomeFragment에서 ItemMainFragment로 가는 액션 -->
+        <action
+            android:id="@+id/action_homeFragment_to_itemMainFragment"
+            app:destination="@id/itemsMainFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
+
+
+
+    <!-- ItemMainFragment 정의 -->
+    <fragment
+        android:id="@+id/itemsMainFragment"
+        android:name="com.example.guru2.ItemsFragment"
+        android:label="ItemMain" >
+    <action
+        android:id="@+id/action_itemsMainFragment_to_HomeFragment"
+        app:destination="@id/itemsMainFragment"
+        app:enterAnim="@anim/slide_in_right"
+        app:exitAnim="@anim/slide_out_left"
+        app:popEnterAnim="@anim/slide_in_left"
+        app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
+
+</navigation>

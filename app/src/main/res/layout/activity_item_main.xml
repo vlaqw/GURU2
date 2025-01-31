@@ -8,6 +8,7 @@
     <!-- 상단 필터 버튼을 HorizontalScrollView로 감싸기 -->
     <android.widget.HorizontalScrollView
         android:id="@+id/horizontalScrollView"
+        android:layout_marginTop="30dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
@@ -30,12 +31,12 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <!-- 전체 버튼 -->
         <Button
             android:id="@+id/btn_all"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:backgroundTint="#FF6200EE"
+            android:background="@drawable/button_round"
+
             android:text="전체"
             android:textColor="#FFFFFF"
             android:layout_marginRight="6dp" />
@@ -45,7 +46,8 @@
             android:id="@+id/btn_food"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:backgroundTint="#FF6200EE"
+
+            android:background="@drawable/button_round"
             android:text="식품"
             android:textColor="#FFFFFF"
             android:layout_marginRight="6dp" />
@@ -55,7 +57,8 @@
             android:id="@+id/btn_clean"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:backgroundTint="#FF6200EE"
+            android:background="@drawable/button_round"
+
             android:text="청소용품"
             android:textColor="#FFFFFF"
             android:layout_marginRight="6dp" />
@@ -65,7 +68,8 @@
             android:id="@+id/btn_daily"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:backgroundTint="#FF6200EE"
+            android:background="@drawable/button_round"
+
             android:text="생활용품"
             android:textColor="#FFFFFF"
             android:layout_marginRight="6dp" />
@@ -75,10 +79,13 @@
             android:id="@+id/btn_kitchen"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:backgroundTint="#FF6200EE"
+            android:background="@drawable/button_round"
+
             android:text="주방용품"
             android:textColor="#FFFFFF"
             android:layout_marginRight="6dp" />
+
+
 
     </LinearLayout>
 
@@ -107,6 +114,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginBottom="16dp"
         android:text="구매 완료"
+
         app:layout_constraintBottom_toTopOf="@+id/recyclerView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.473"
@@ -128,17 +136,70 @@
         app:layout_constraintTop_toBottomOf="@+id/checkBox_completed" />
 
     <!-- 추가 버튼 -->
+
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab_add_item"
         android:layout_width="0dp"
         android:layout_height="423dp"
         android:layout_margin="16dp"
-        android:layout_marginEnd="28dp"
-        android:backgroundTint="#FF6200EE"
+        android:layout_marginBottom="100dp"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:srcCompat="@android:drawable/ic_input_add"
         app:tint="#FFFFFF"
+        android:background="#FF7043"
         tools:layout_editor_absoluteY="641dp" />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:orientation="horizontal">
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+
+                android:layout_marginTop="600dp"
+                android:src="@drawable/white_box" />
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="625dp"
+                android:layout_marginLeft="30dp"
+                android:id="@+id/homeImage"
+                android:background="@android:color/transparent"
+                android:src="@drawable/home_not_show"/>
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="185dp"
+                android:layout_marginTop="625dp"
+                android:id="@+id/itemImage"
+                android:background="@android:color/transparent"
+                android:src="@drawable/thing_show" />
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="330dp"
+                android:layout_marginTop="625dp"
+                android:id="@+id/accountingImage"
+                android:background="@android:color/transparent"
+                android:src="@drawable/accounting_not_show" />
+
+        </FrameLayout>
+
+
+    </LinearLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
