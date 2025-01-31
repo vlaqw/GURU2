@@ -1,0 +1,144 @@
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- 상단 필터 버튼을 HorizontalScrollView로 감싸기 -->
+    <android.widget.HorizontalScrollView
+        android:id="@+id/horizontalScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+
+    <!-- 상단 필터 버튼 -->
+    <LinearLayout
+        android:id="@+id/filterLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="220dp"
+        android:background="#FFFFFF"
+        android:orientation="horizontal"
+        android:padding="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/checkBox"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <!-- 전체 버튼 -->
+        <Button
+            android:id="@+id/btn_all"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#FF6200EE"
+            android:text="전체"
+            android:textColor="#FFFFFF"
+            android:layout_marginRight="6dp" />
+
+        <!-- 식품 버튼 -->
+        <Button
+            android:id="@+id/btn_food"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#FF6200EE"
+            android:text="식품"
+            android:textColor="#FFFFFF"
+            android:layout_marginRight="6dp" />
+
+        <!-- 청소용품 버튼 -->
+        <Button
+            android:id="@+id/btn_clean"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#FF6200EE"
+            android:text="청소용품"
+            android:textColor="#FFFFFF"
+            android:layout_marginRight="6dp" />
+
+        <!-- 생활용품 버튼 -->
+        <Button
+            android:id="@+id/btn_daily"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#FF6200EE"
+            android:text="생활용품"
+            android:textColor="#FFFFFF"
+            android:layout_marginRight="6dp" />
+
+        <!-- 주방용품 버튼 -->
+        <Button
+            android:id="@+id/btn_kitchen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#FF6200EE"
+            android:text="주방용품"
+            android:textColor="#FFFFFF"
+            android:layout_marginRight="6dp" />
+
+    </LinearLayout>
+
+    </android.widget.HorizontalScrollView>
+
+    <!-- 구매 필요 체크박스 -->
+    <CheckBox
+        android:id="@+id/checkBox_needeed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="16dp"
+        android:text="구매 필요"
+        app:layout_constraintBottom_toTopOf="@+id/recyclerView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.473"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView"
+        app:layout_constraintVertical_bias="0.351" />
+
+    <!-- 구매 완료 체크박스 -->
+    <CheckBox
+        android:id="@+id/checkBox_completed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="16dp"
+        android:text="구매 완료"
+        app:layout_constraintBottom_toTopOf="@+id/recyclerView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.473"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/checkBox_needeed" />
+
+    <!-- 물품 목록 -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:layout_marginTop="140dp"
+        android:scrollbars="vertical"
+        android:visibility="visible"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        app:layout_constraintEnd_toStartOf="@+id/horizontalScrollView"
+        app:layout_constraintStart_toEndOf="@+id/horizontalScrollView"
+        app:layout_constraintTop_toBottomOf="@+id/checkBox_completed" />
+
+    <!-- 추가 버튼 -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_add_item"
+        android:layout_width="0dp"
+        android:layout_height="423dp"
+        android:layout_margin="16dp"
+        android:layout_marginEnd="28dp"
+        android:backgroundTint="#FF6200EE"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:srcCompat="@android:drawable/ic_input_add"
+        app:tint="#FFFFFF"
+        tools:layout_editor_absoluteY="641dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
