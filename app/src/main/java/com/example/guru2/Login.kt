@@ -12,17 +12,30 @@ import kotlinx.coroutines.launch
 import java.sql.DriverManager
 
 class Login : ComponentActivity() {
-    private val jdbcUrl = "jdbc:mysql://192.168.45.188:3306/check_list_db"
+    private val jdbcUrl = "jdbc:mysql://192.168.45.85:3306/check_list_db"
+    //private val jdbcUrl = "jdbc:mysql://192.168.45.188:3306/check_list_db"
+    // 192.168.45.125
+    // 192.168.45.125
     private val dbUser = "root"
     private val dbPassword = "123456"
+
+    //사소한 사항이나, 이로 인해 오류 확인 후 수정까지 4시간이 걸림... 꼭 확인!!
+    //cmd 들어가서, 나의 ipv4 주소 확인 후 꼭!! 수정하기.
+    //mysql에 외부 접근 혀용 점검
+    //예시)  grant all privileges on *.* to 'root'@'192.168.45.227' identified by '123456';
+    //mysql 구현 코드
+    //mysql> CREATE TABLE check_list (
+    //    -> team_name VARCHAR(20) NOT NULL,
+    //    -> team_mate VARCHAR(20) NOT NULL
+    //    -> );
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.login) // 위 XML 레이아웃 연결
 
-        val teamNameEditText = findViewById<EditText>(R.id.teamName)
-        val nicknameEditText = findViewById<EditText>(R.id.nicknameEditText)
-        val loginButton = findViewById<Button>(R.id.loginTeamMate)
+        val teamNameEditText = findViewById<EditText>(R.id.teamName) //팀 이름
+        val nicknameEditText = findViewById<EditText>(R.id.nicknameEditText) //팀 닉네임
+        val loginButton = findViewById<Button>(R.id.loginTeamMate) //로그인 버튼
 
         loginButton.setOnClickListener {
             val teamName = teamNameEditText.text.toString().trim()
@@ -52,7 +65,7 @@ class Login : ComponentActivity() {
             }
         }
     }
-
+//DB로 부터 저장된 정보 확인 이후 로그인.(참고로.. 같은 팀 안에 중복되는 팀 닉네임은 불가!)
     private fun checkLoginCredentials(teamName: String, nickname: String): Boolean {
         return try {
             Class.forName("com.mysql.jdbc.Driver")

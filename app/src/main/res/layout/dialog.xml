@@ -35,7 +35,7 @@
 
         <Button
             android:id="@+id/noButton"
-            android:background="@color/white"
+            android:background="@drawable/button_white_round"
             android:layout_width="0dp"
             android:layout_height="40dp"
             android:layout_marginEnd="7dp"
@@ -45,7 +45,7 @@
 
         <Button
             android:id="@+id/yesButton"
-            android:background="#FF7900"
+            android:background="@drawable/button_round"
             android:layout_width="0dp"
             android:layout_height="40dp"
             android:layout_weight="1"

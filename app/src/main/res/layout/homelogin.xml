@@ -33,8 +33,8 @@
         android:id="@+id/makingTeam"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#FF7900"
         android:text="팀 만들기"
+        android:background="@drawable/button_round"
         android:textColor="#FBF3F3"
         android:textSize="20sp"
         android:textStyle="bold" />
@@ -43,7 +43,8 @@
         android:id="@+id/login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#FF7900"
+        android:background="@drawable/button_round"
+        android:layout_marginTop="10dp"
         android:text="로그인"
         android:textColor="#F8F8F8"
 

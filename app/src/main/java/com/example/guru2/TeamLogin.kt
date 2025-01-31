@@ -17,7 +17,7 @@ class TeamLogin : ComponentActivity() {
 
         val teamNameEditText = findViewById<EditText>(R.id.edtLoginTeam)
         val proceedTeamButton = findViewById<Button>(R.id.login)
-
+        //팀을 새롭게 생성하는 경우 필요한 코틀린 코드.
         // 초기 버튼 상태 설정
         proceedTeamButton.isEnabled = false
         proceedTeamButton.setBackgroundColor(Color.GRAY) // 버튼을 회색으로 설정

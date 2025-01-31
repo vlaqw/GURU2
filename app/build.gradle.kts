@@ -44,6 +44,7 @@ dependencies {
     implementation (files("libs/mysql-connector-java-5.1.49.jar"))
     //implementation fileTree(dir: "libs", include: ["mysql-connector-java-5.1.49.jar"])
     implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
+
    // implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
 
     //implementation("com.github.mcxiaoke:mysql-connector-android:2.0.1")
