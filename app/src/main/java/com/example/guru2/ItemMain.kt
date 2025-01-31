@@ -48,14 +48,17 @@ class ItemMain : AppCompatActivity() {
 
 
         //홈버튼이 눌렀을 때,
+
         homeButton.setOnClickListener {
+            val neededItems = itemList.filter { !it.isCompleted }  // 구매 필요한 항목 필터링
+            val neededItemNames = neededItems.joinToString(", ") { it.name } // 아이템 이름만 추출해서 문자열로 변환
+
             val homeIntent = Intent(this, Home::class.java)
             homeIntent.putExtra("TEAM_NAME", teamName)
             homeIntent.putExtra("NICKNAME", nickname)
-            startActivity(homeIntent)
+            homeIntent.putExtra("NEEDED_ITEMS", neededItemNames) // 구매 필요한 물품 전달
             intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
-
-
+            startActivity(homeIntent)
         }
 
 
@@ -143,6 +146,7 @@ class ItemMain : AppCompatActivity() {
         val quantity = dialogView.findViewById<EditText>(R.id.et_quantity)
         val memo = dialogView.findViewById<EditText>(R.id.et_memo)
         val addButton = dialogView.findViewById<Button>(R.id.btn_add)
+        val cancelButton = dialogView.findViewById<Button>(R.id.btn_cancel)  // 취소 버튼 추가
 
         // 스피너 설정
         ArrayAdapter.createFromResource(
@@ -155,10 +159,15 @@ class ItemMain : AppCompatActivity() {
         }
 
         val dialog = AlertDialog.Builder(this)
-            .setTitle("물품 추가")
+            //.setTitle("물품 추가")
             .setView(dialogView)
-            .setNegativeButton("취소", null)
+            //.setNegativeButton("취소", null)
             .create()
+
+        // "취소" 버튼 클릭 리스너
+        cancelButton.setOnClickListener {
+            dialog.dismiss() // 다이얼로그 닫기
+        }
 
         // Set click listener for "등록" button inside dialog
         addButton.setOnClickListener {

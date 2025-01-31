@@ -80,10 +80,11 @@
 
     <TextView
         android:layout_width="match_parent"
+        android:id="@+id/things"
         android:layout_height="wrap_content"
         android:text="구매해야 할 물품이 없어요"
-        android:background="#E0E0E0"
-        android:textSize="12sp"
+        android:background="#ffffff"
+        android:textSize="15sp"
         android:padding="16dp"
         android:textColor="#757575" />
 <LinearLayout
@@ -111,7 +112,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="메모를 남겨 보세요"
-        android:textSize="12sp"
+        android:textSize="16sp"
         android:background="#FFFFFF"
         android:padding="16dp"
         android:layout_marginTop="8dp"

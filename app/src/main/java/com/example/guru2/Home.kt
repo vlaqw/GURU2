@@ -59,6 +59,11 @@ class Home : ComponentActivity() {
         val itemButton = findViewById<ImageButton>(R.id.itemImage) //물품 이미지
         val accountButton = findViewById<ImageButton>(R.id.accountingImage) //회계 이미지
 
+        val neededItemsTextView  = findViewById<TextView>(R.id.things) //구매할 물픔 표시
+        val neededItems = intent.getStringExtra("NEEDED_ITEMS") ?: "구매할 물품이 없습니다."
+
+        neededItemsTextView.text = "구매할 물품: $neededItems"
+
         val teamName = intent.getStringExtra("TEAM_NAME") ?: return  //인텐트를 통해..Login에서 받아온 팀 이름.
         val initialNickname = intent.getStringExtra("NICKNAME") ?: return //인텐트를 통해..Login에서 받아온 팀 닉네임..
 
