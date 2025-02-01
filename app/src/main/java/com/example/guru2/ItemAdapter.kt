@@ -77,7 +77,6 @@
             val dialog = AlertDialog.Builder(context)
                 .setTitle("물품 수정/삭제")
                 .setView(dialogView)
-                .setNegativeButton("취소", null)
                 .create()
 
             // 수정 버튼

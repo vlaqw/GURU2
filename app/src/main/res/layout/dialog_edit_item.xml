@@ -8,8 +8,10 @@
     <!-- 물품 이름 입력 -->
     <EditText
         android:id="@+id/et_item_name"
+        android:layout_marginTop="8dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:maxLines="1"
         android:hint="물품 이름"
         android:inputType="text" />
 
@@ -17,24 +19,26 @@
     <Spinner
         android:id="@+id/spinner_category"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="38dp"
         android:layout_marginTop="8dp" />
 
     <!-- 수량 입력 -->
     <EditText
         android:id="@+id/et_quantity"
+        android:layout_marginTop="8dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:maxLines="1"
         android:hint="수량"
-        android:inputType="number" />
+        android:inputType="number"  />
 
     <!-- 메모 입력 -->
     <EditText
         android:id="@+id/et_memo"
+        android:layout_marginTop="8dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:maxLines="1"
         android:hint="메모"
         android:inputType="text" />
 
@@ -42,29 +46,31 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_gravity="center">
-
-        <!-- 수정 버튼 -->
-        <Button
-        android:id="@+id/btn_edit"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:layout_marginTop="16dp"
-        android:text="수정"
+        android:orientation="horizontal">
+
+        ]<!-- 수정 버튼 -->
+        <Button
+            android:id="@+id/btn_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:background="@drawable/button_round"
-        android:textColor="#FFFFFF" />
+            android:text="수정"
+            android:textColor="#FFFFFF" />
 
         <!-- 삭제 버튼 -->
         <Button
-        android:id="@+id/btn_delte"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginLeft="10dp"
-        android:text="삭제"
+            android:id="@+id/btn_delte"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:background="@drawable/button_round"
-        android:textColor="#FFFFFF" />
+            android:text="삭제"
+            android:textColor="#FFFFFF" />
 
     </LinearLayout>
 

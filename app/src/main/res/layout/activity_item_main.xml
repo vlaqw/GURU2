@@ -195,20 +195,16 @@
     <!-- 추가 버튼 (FloatingActionButton) -->
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab_add_item"
-        android:layout_width="72dp"
-        android:layout_height="72dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_margin="16dp"
-
-        android:layout_marginTop="447dp"
-        android:layout_marginEnd="36dp"
-        android:layout_marginBottom="20dp"
-        android:background="#FF7043"
-        android:tint="@color/white"
+        android:src="@drawable/add"
+        app:maxImageSize="30dp"
+        app:backgroundTint="@color/orange"
         app:layout_constraintBottom_toTopOf="@+id/frameLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView"
-        app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@drawable/add" />
+        app:layout_constraintVertical_bias="1.0" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

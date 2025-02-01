@@ -157,7 +157,6 @@ class ItemMain : AppCompatActivity() {
         val quantity = dialogView.findViewById<EditText>(R.id.et_quantity)
         val memo = dialogView.findViewById<EditText>(R.id.et_memo)
         val addButton = dialogView.findViewById<Button>(R.id.btn_add)
-        val cancelButton = dialogView.findViewById<Button>(R.id.btn_cancel)  // 취소 버튼 추가
 
         // 스피너 설정
         ArrayAdapter.createFromResource(
@@ -170,15 +169,9 @@ class ItemMain : AppCompatActivity() {
         }
 
         val dialog = AlertDialog.Builder(this)
-            //.setTitle("물품 추가")
+            .setTitle("물품 추가")
             .setView(dialogView)
-            //.setNegativeButton("취소", null)
             .create()
-
-        // "취소" 버튼 클릭 리스너
-        cancelButton.setOnClickListener {
-            dialog.dismiss() // 다이얼로그 닫기
-        }
 
         // Set click listener for "등록" button inside dialog
         addButton.setOnClickListener {
