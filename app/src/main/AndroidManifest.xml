@@ -43,7 +43,7 @@
         <activity android:name=".ItemMain"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
 
-        <activity android:name=".AccountMainActivity"
+        <activity android:name=".AccountMain"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
     </application>
 
