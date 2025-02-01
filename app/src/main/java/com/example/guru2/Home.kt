@@ -17,7 +17,7 @@ import android.content.Intent
 
 
 class Home : ComponentActivity() {
-    private val jdbcUrl = "jdbc:mysql://192.168.45.85:3306/check_list_db"
+    private val jdbcUrl = "jdbc:mysql://192.168.219.101:3306/check_list_db"
     //private val jdbcUrl = "jdbc:mysql://192.168.45.85:3306/check_list_db?useUnicode=true&characterEncoding=utf8mb4"
     private val dbUser = "root"
     private val dbPassword = "123456"
@@ -93,6 +93,15 @@ class Home : ComponentActivity() {
        //물품 페이지로 이동...
         itemButton.setOnClickListener {
             val intent = Intent(this@Home, ItemMain::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
+            intent.putExtra("TEAM_NAME", teamName) // 팀 이름을 추가
+            intent.putExtra("NICKNAME", initialNickname) // 닉네임을 추가
+            startActivity(intent)
+        }
+
+        //회계 페이지로 이동...
+        accountButton.setOnClickListener {
+            val intent = Intent(this@Home, AccountMain::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
             intent.putExtra("TEAM_NAME", teamName) // 팀 이름을 추가
             intent.putExtra("NICKNAME", initialNickname) // 닉네임을 추가
