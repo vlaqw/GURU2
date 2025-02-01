@@ -2,7 +2,14 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.GURU2" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="colorPrimary">@color/orange</item>
+        <item name="colorAccent">@color/orange</item>
+        <item name="floatingActionButtonStyle">@style/CustomFABStyle</item>
+    </style>
+
+    <style name="CustomFABStyle">
+        <item name="backgroundTint">@color/orange</item> <!-- FAB 배경 색상 -->
+        <item name="android:tint">@color/white</item> <!-- 아이콘 색상 -->
     </style>
 
     <style name="Theme.GURU2" parent="Base.Theme.GURU2" />

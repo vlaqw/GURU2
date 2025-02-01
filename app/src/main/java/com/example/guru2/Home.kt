@@ -19,6 +19,7 @@ import androidx.fragment.app.Fragment // 추가
 
 
 class Home : AppCompatActivity() {
+    //private val jdbcUrl = "jdbc:mysql://192.168.45.26:3306/check_list_db"
     private val jdbcUrl = "jdbc:mysql://192.168.219.101:3306/check_list_db"
     //private val jdbcUrl = "jdbc:mysql://192.168.45.85:3306/check_list_db?useUnicode=true&characterEncoding=utf8mb4"
     private val dbUser = "root"
@@ -28,7 +29,7 @@ class Home : AppCompatActivity() {
     //cmd 들어가서, 나의 ipv4 주소 확인 후 꼭!! 수정하기. //나는 매일.. 달라짐으로... 매일 확인...
     //mysql에 외부 접근 혀용 점검
     //예시)  grant all privileges on *.* to 'root'@'192.168.45.227' identified by '123456';
-    //mysql 구현 코드
+    //mysql 구현 코드s
     //mysql> CREATE TABLE check_list (
     //    -> team_name VARCHAR(20) NOT NULL,
     //    -> team_mate VARCHAR(20) NOT NULL

@@ -120,7 +120,7 @@
             fun bind(item: Item) {
                 name.text = item.name
                 category.text = item.category
-                quantity.text = "수량: ${item.quantity}개"
+                quantity.text = "${item.quantity}개"
                 memo.text = item.memo
                 toggleButton.isChecked = item.isCompleted
             }
