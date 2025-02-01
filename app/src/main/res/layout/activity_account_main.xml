@@ -122,7 +122,7 @@
                 android:layout_marginTop="625dp"
                 android:id="@+id/accountingImage"
                 android:background="@android:color/transparent"
-                android:src="@drawable/accounting_not_show" />
+                android:src="@drawable/accounting_show" />
 
         </FrameLayout>
 

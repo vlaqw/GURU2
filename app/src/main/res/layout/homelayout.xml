@@ -125,6 +125,12 @@
         android:id="@+id/saveMemo"
         android:background="@drawable/button_round"
         android:text="저장"/>
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
 <LinearLayout
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"

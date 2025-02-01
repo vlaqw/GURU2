@@ -14,9 +14,11 @@ import java.sql.DriverManager
 import java.util.concurrent.Executors
 import android.content.Intent
 
+import androidx.appcompat.app.AppCompatActivity // 추가
+import androidx.fragment.app.Fragment // 추가
 
 
-class Home : ComponentActivity() {
+class Home : AppCompatActivity() {
     private val jdbcUrl = "jdbc:mysql://192.168.219.101:3306/check_list_db"
     //private val jdbcUrl = "jdbc:mysql://192.168.45.85:3306/check_list_db?useUnicode=true&characterEncoding=utf8mb4"
     private val dbUser = "root"
@@ -98,8 +100,6 @@ class Home : ComponentActivity() {
             intent.putExtra("NICKNAME", initialNickname) // 닉네임을 추가
             startActivity(intent)
         }
-
-        //회계 페이지로 이동...
         accountButton.setOnClickListener {
             val intent = Intent(this@Home, AccountMain::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
@@ -107,6 +107,30 @@ class Home : ComponentActivity() {
             intent.putExtra("NICKNAME", initialNickname) // 닉네임을 추가
             startActivity(intent)
         }
+
+
+        //회계 페이지로 이동...
+
+        /*accountButton.setOnClickListener {
+            val intent = Intent(this@Home, AccountMain::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
+            intent.putExtra("TEAM_NAME", teamName) // 팀 이름을 추가
+            intent.putExtra("NICKNAME", initialNickname) // 닉네임을 추가
+            startActivity(intent)
+        }*/
+       /* accountButton.setOnClickListener {
+            val fragment = AccountingFragment()
+            val bundle = Bundle().apply {
+                putString("TEAM_NAME", teamName)
+                putString("NICKNAME", initialNickname)
+            }
+            fragment.arguments = bundle
+
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.fragment_container, fragment)
+                .addToBackStack(null)
+                .commit()
+        }*/
 
     }
  //메모 업데이트를 하는 함수

@@ -32,6 +32,9 @@ class AccountMain: AppCompatActivity(){
         val teamName = intent.getStringExtra("TEAM_NAME") ?: return  //인텐트를 통해..Login에서 받아온 팀 이름.
         val initialNickname = intent.getStringExtra("NICKNAME") ?: return //인텐트를 통해..Login에서 받아온 팀 닉네임..
 
+
+
+
         addItemButton = findViewById(R.id.addItemButton)
         itemsContainer = findViewById(R.id.itemsContainer)
         totalAmountTextView = findViewById(R.id.totalAmountTextView)

@@ -1,25 +1,49 @@
 package com.example.guru2
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.core.widget.addTextChangedListener
-import com.google.android.material.floatingactionbutton.FloatingActionButton
 import java.util.Calendar
 
-class AccountingFragment : Fragment(R.layout.fragment_accounting) {
+/**
+ * A simple [Fragment] subclass.
+ * Use the [AccountingFragment.newInstance] factory method to
+ * create an instance of this fragment.
+ */
+class AccountingFragment : androidx.fragment.app.Fragment(R.layout.fragment_accountin)//(R.layout.fragment_accounting)
+{
 
-    lateinit var addItemButton: FloatingActionButton // 항목 추가 버튼
+    lateinit var addItemButton: com.google.android.material.floatingactionbutton.FloatingActionButton // 항목 추가 버튼
     lateinit var itemsContainer: LinearLayout // 항목들이 추가될 컨테이너
     lateinit var totalAmountTextView: TextView // 총액을 표시하는 TextView
     lateinit var amountPerPersonTextView: TextView // 1인당 금액을 표시할 TextView
     lateinit var yearMonthTextView: TextView // 현재의 연도와 월을 표시하는 TextView
 
     private var totalAmount = 0.0 // 총액을 저장하는 변수
+
+    // TODO: Rename and change types of parameters
+    private var param1: String? = null
+    private var param2: String? = null
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        arguments?.let {
+            param1 = it.getString(ARG_PARAM1)
+            param2 = it.getString(ARG_PARAM2)
+        }
+    }
+
+    /*override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.fragment_accounting, container, false)
+    }*/
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -56,17 +80,20 @@ class AccountingFragment : Fragment(R.layout.fragment_accounting) {
         // 항목 이름 입력란
         val nameEditText = EditText(requireContext())
         nameEditText.hint = "항목"
-        nameEditText.layoutParams = LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT, 1f)
+        nameEditText.layoutParams =
+            LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT, 1f)
 
         // 금액 입력란
         val amountEditText = EditText(requireContext())
         amountEditText.hint = "금액"
-        amountEditText.layoutParams = LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT, 1f)
+        amountEditText.layoutParams =
+            LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT, 1f)
 
         // 항목 삭제 버튼
         val deleteButton = Button(requireContext())
         deleteButton.text = "삭제"
-        deleteButton.layoutParams = LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT, 1f)
+        deleteButton.layoutParams =
+            LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT, 1f)
 
         // 금액이 변경될 때마다 총액 갱신
         amountEditText.addTextChangedListener { text ->
@@ -116,4 +143,25 @@ class AccountingFragment : Fragment(R.layout.fragment_accounting) {
         totalAmountTextView.text = "총액: ${totalAmount}원"
     }
 
+    companion object {
+        private const val ARG_PARAM1 = "param1"
+        private const val ARG_PARAM2 = "param2"
+        /**
+         * Use this factory method to create a new instance of
+         * this fragment using the provided parameters.
+         *
+         * @param param1 Parameter 1.
+         * @param param2 Parameter 2.
+         * @return A new instance of fragment AccountingFragment.
+         */
+        // TODO: Rename and change types and number of parameters
+        @JvmStatic
+        fun newInstance(param1: String, param2: String) =
+            AccountingFragment().apply {
+                arguments = Bundle().apply {
+                    putString(ARG_PARAM1, param1)
+                    putString(ARG_PARAM2, param2)
+                }
+            }
+    }
 }
