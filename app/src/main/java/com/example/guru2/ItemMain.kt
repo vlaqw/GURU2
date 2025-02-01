@@ -104,11 +104,11 @@ class ItemMain : AppCompatActivity() {
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = adapter
 
-        val btnAll = findViewById<Button>(R.id.btn_all)
-        val btnFood = findViewById<Button>(R.id.btn_food)
+        val btnAll = findViewById<ImageButton>(R.id.btn_all)
+        val btnFood = findViewById<ImageButton>(R.id.btn_food)
         val btnDaily = findViewById<Button>(R.id.btn_daily)
         val btnClean = findViewById<Button>(R.id.btn_clean)
-        val btnKitchen = findViewById<Button>(R.id.btn_kitchen)
+        val btnKitchen = findViewById<ImageButton>(R.id.btn_kitchen)
 
         btnAll.setOnClickListener {
             filterItems("전체")
