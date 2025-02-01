@@ -14,10 +14,13 @@ import java.sql.DriverManager
 import java.util.concurrent.Executors
 import android.content.Intent
 
+import androidx.appcompat.app.AppCompatActivity // 추가
+import androidx.fragment.app.Fragment // 추가
 
 
-class Home : ComponentActivity() {
-    private val jdbcUrl = "jdbc:mysql://192.168.219.106:3306/check_list_db"
+class Home : AppCompatActivity() {
+    //private val jdbcUrl = "jdbc:mysql://192.168.45.26:3306/check_list_db"
+    private val jdbcUrl = "jdbc:mysql://192.168.219.101:3306/check_list_db"
     //private val jdbcUrl = "jdbc:mysql://192.168.45.85:3306/check_list_db?useUnicode=true&characterEncoding=utf8mb4"
     private val dbUser = "root"
     private val dbPassword = "123456"
@@ -26,7 +29,7 @@ class Home : ComponentActivity() {
     //cmd 들어가서, 나의 ipv4 주소 확인 후 꼭!! 수정하기. //나는 매일.. 달라짐으로... 매일 확인...
     //mysql에 외부 접근 혀용 점검
     //예시)  grant all privileges on *.* to 'root'@'192.168.45.227' identified by '123456';
-    //mysql 구현 코드
+    //mysql 구현 코드s
     //mysql> CREATE TABLE check_list (
     //    -> team_name VARCHAR(20) NOT NULL,
     //    -> team_mate VARCHAR(20) NOT NULL
@@ -98,8 +101,6 @@ class Home : ComponentActivity() {
             intent.putExtra("NICKNAME", initialNickname) // 닉네임을 추가
             startActivity(intent)
         }
-
-        //회계 페이지로 이동...
         accountButton.setOnClickListener {
             val intent = Intent(this@Home, AccountMain::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
@@ -107,6 +108,30 @@ class Home : ComponentActivity() {
             intent.putExtra("NICKNAME", initialNickname) // 닉네임을 추가
             startActivity(intent)
         }
+
+
+        //회계 페이지로 이동...
+
+        /*accountButton.setOnClickListener {
+            val intent = Intent(this@Home, AccountMain::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
+            intent.putExtra("TEAM_NAME", teamName) // 팀 이름을 추가
+            intent.putExtra("NICKNAME", initialNickname) // 닉네임을 추가
+            startActivity(intent)
+        }*/
+       /* accountButton.setOnClickListener {
+            val fragment = AccountingFragment()
+            val bundle = Bundle().apply {
+                putString("TEAM_NAME", teamName)
+                putString("NICKNAME", initialNickname)
+            }
+            fragment.arguments = bundle
+
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.fragment_container, fragment)
+                .addToBackStack(null)
+                .commit()
+        }*/
 
     }
  //메모 업데이트를 하는 함수

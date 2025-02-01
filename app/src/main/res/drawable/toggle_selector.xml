@@ -2,14 +2,14 @@
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:state_checked="true">
         <shape android:shape="rectangle">
-            <solid android:color="#4CAF50"/> <!-- 녹색: 구매 완료 -->
-            <corners android:radius="8dp"/>
+            <solid android:color="#7c7c7c"/> <!-- gray : 구매 완료 -->
+            <corners android:radius="12dp"/>
         </shape>
     </item>
     <item>
         <shape android:shape="rectangle">
-            <solid android:color="#FF7043"/> <!-- 보라색: 구매 필요 -->
-            <corners android:radius="8dp"/>
+            <solid android:color="#FF7043"/> <!-- orange : 구매 필요 -->
+            <corners android:radius="12dp"/>
         </shape>
     </item>
 
