@@ -18,9 +18,8 @@ import androidx.appcompat.app.AppCompatActivity // 추가
 import androidx.fragment.app.Fragment // 추가
 
 
-class Home : AppCompatActivity() {
-    private val jdbcUrl = "jdbc:mysql://192.168.219.101:3306/check_list_db"
-    //private val jdbcUrl = "jdbc:mysql://192.168.45.85:3306/check_list_db?useUnicode=true&characterEncoding=utf8mb4"
+class Home : ComponentActivity() {
+    private val jdbcUrl = "jdbc:mysql://192.168.45.85:3306/check_list_db"
     private val dbUser = "root"
     private val dbPassword = "123456"
 
