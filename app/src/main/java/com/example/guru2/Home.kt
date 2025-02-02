@@ -20,6 +20,7 @@ import androidx.fragment.app.Fragment // 추가
 
 class Home : ComponentActivity() {
     private val jdbcUrl = "jdbc:mysql://192.168.45.85:3306/check_list_db"
+    //192.168.45.85
     private val dbUser = "root"
     private val dbPassword = "123456"
 

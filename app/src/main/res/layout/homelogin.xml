@@ -28,7 +28,7 @@
         android:layout_width="328dp"
         android:layout_gravity="center"
         android:layout_height="wrap_content"
-        android:src="@drawable/nest_logo" />
+        android:src="@drawable/home_logo" />
 
     <Button
         android:id="@+id/makingTeam"
