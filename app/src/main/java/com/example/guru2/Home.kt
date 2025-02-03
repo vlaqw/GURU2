@@ -109,29 +109,6 @@ class Home : ComponentActivity() {
         }
 
 
-        //회계 페이지로 이동...
-
-        /*accountButton.setOnClickListener {
-            val intent = Intent(this@Home, AccountMain::class.java)
-            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
-            intent.putExtra("TEAM_NAME", teamName) // 팀 이름을 추가
-            intent.putExtra("NICKNAME", initialNickname) // 닉네임을 추가
-            startActivity(intent)
-        }*/
-       /* accountButton.setOnClickListener {
-            val fragment = AccountingFragment()
-            val bundle = Bundle().apply {
-                putString("TEAM_NAME", teamName)
-                putString("NICKNAME", initialNickname)
-            }
-            fragment.arguments = bundle
-
-            supportFragmentManager.beginTransaction()
-                .replace(R.id.fragment_container, fragment)
-                .addToBackStack(null)
-                .commit()
-        }*/
-
     }
  //메모 업데이트를 하는 함수
     private fun updateMemo(teamName: String, newMemo: String) {

@@ -1,15 +1,15 @@
 package com.example.guru2
 
-<<<<<<< Updated upstream
+
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import android.widget.Button
 import com.example.guru2.ItemMain
 import com.example.guru2.R
-/*
-class ItemMainActivity : AppCompatActivity() {
 
+class ItemMainActivity : AppCompatActivity() {
+/*
     private lateinit var buttonFragment: Button
     private lateinit var buttonItemMain: Button
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,9 +31,7 @@ class ItemMainActivity : AppCompatActivity() {
             val intent = Intent(this, ItemMain::class.java)
             startActivity(intent)
         }
-    }
-}*/
-=======
-class ItemMainActivity {
+    }*/
 }
->>>>>>> Stashed changes
+
+
