@@ -45,8 +45,16 @@ class AccountMain: AppCompatActivity(){
 
         val homeButton = findViewById<ImageButton>(R.id.homeImage) //물품 이미지
         val itemButton = findViewById<ImageButton>(R.id.itemImage) //물품 이미지
+        val sharedPreferences = getSharedPreferences("AppData", MODE_PRIVATE)
         val teamName = intent.getStringExtra("TEAM_NAME") ?: return  //인텐트를 통해..Login에서 받아온 팀 이름.
         val initialNickname = intent.getStringExtra("NICKNAME") ?: return //인텐트를 통해..Login에서 받아온 팀 닉네임..
+
+        //home으로 받은 팀 닉네임, 팀이름 저장.
+        sharedPreferences.edit().apply {
+            putString("TEAM_NAME", teamName)
+            putString("NICKNAME", initialNickname)
+            apply()
+        }
 
         addItemButton = findViewById(R.id.addItemButton)
         itemsContainer = findViewById(R.id.itemsContainer)
@@ -67,10 +75,13 @@ class AccountMain: AppCompatActivity(){
 
         //홈버튼을 눌렀을 때,
         homeButton.setOnClickListener {
-            val homeIntent = Intent(this@AccountMain, Home::class.java)
+            /*val homeIntent = Intent(this@AccountMain, Home::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
             intent.putExtra("TEAM_NAME", teamName) // 팀 이름을 추가
             intent.putExtra("NICKNAME", initialNickname) // 닉네임을 추가
+            startActivity(homeIntent)*/
+            val homeIntent = Intent(this@AccountMain, Home::class.java)
+            homeIntent.flags = Intent.FLAG_ACTIVITY_REORDER_TO_FRONT  // 기존 액티비티 유지
             startActivity(homeIntent)
         }
 
