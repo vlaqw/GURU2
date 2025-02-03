@@ -5,27 +5,33 @@
     android:orientation="vertical"
     android:padding="16dp">
 
-    <!-- 물품 이름 입력 -->
-    <EditText
-        android:id="@+id/et_item_name"
-        android:layout_marginTop="8dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:maxLines="1"
-        android:hint="물품 이름"
-        android:inputType="text" />
+
+
 
     <!-- 카테고리 선택 -->
     <Spinner
         android:id="@+id/spinner_category"
         android:layout_width="match_parent"
         android:layout_height="38dp"
+        android:layout_marginLeft="5dp"
         android:layout_marginTop="8dp" />
+
+    <!-- 물품 이름 입력 -->
+    <EditText
+        android:id="@+id/et_item_name"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:maxLines="1"
+        android:hint="물품 이름"
+        android:inputType="text" />
 
     <!-- 수량 입력 -->
     <EditText
         android:id="@+id/et_quantity"
         android:layout_marginTop="8dp"
+        android:layout_marginLeft="5dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:maxLines="1"
@@ -36,6 +42,7 @@
     <EditText
         android:id="@+id/et_memo"
         android:layout_marginTop="8dp"
+        android:layout_marginLeft="5dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:maxLines="1"
@@ -46,6 +53,7 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
         android:layout_gravity="center"
         android:layout_marginTop="16dp"
         android:orientation="horizontal">

@@ -14,17 +14,16 @@ import androidx.activity.ComponentActivity
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import java.sql.Connection
 import java.sql.DriverManager
-import java.sql.PreparedStatement
+
 
 
 class TeamMateLogin : ComponentActivity() {
 
-    //private val jdbcUrl = "jdbc:mysql://192.168.45.26:3306/check_list_db"
+
 
    private val jdbcUrl = "jdbc:mysql://192.168.219.106:3306/check_list_db" // 서버 IP 및 포트 설정
-//192.168.45.125
+
     //사소한 사항이나, 이로 인해 오류 확인 후 수정까지 4시간이 걸림... 꼭 확인!!
     //cmd 들어가서, 나의 ipv4 주소 확인 후 꼭!! 수정하기.
     //mysql에 외부 접근 혀용 점검

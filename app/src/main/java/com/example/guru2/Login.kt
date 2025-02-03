@@ -14,13 +14,6 @@ import java.sql.DriverManager
 class Login : ComponentActivity() {
 
     private val jdbcUrl = "jdbc:mysql://192.168.45.85:3306/check_list_db"
-
-    //private val jdbcUrl = "jdbc:mysql://192.168.45.26:3306/check_list_db"
-    //private val jdbcUrl = "jdbc:mysql://192.168.219.106:3306/check_list_db"
-
-    //private val jdbcUrl = "jdbc:mysql://192.168.45.188:3306/check_list_db"
-    // 192.168.45.125
-    // 192.168.45.125
     private val dbUser = "root"
     private val dbPassword = "123456"
 

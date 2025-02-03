@@ -2,9 +2,6 @@ package com.example.guru2
 
 import android.app.AlertDialog
 import android.os.Bundle
-import android.os.Handler //수정으로 필요가 없어졌으나, 혹시 다시 사용할 수도 있음...
-import android.os.Looper
-import android.util.Log
 import android.widget.*
 import androidx.activity.ComponentActivity
 import kotlinx.coroutines.CoroutineScope
@@ -14,8 +11,6 @@ import java.sql.DriverManager
 import java.util.concurrent.Executors
 import android.content.Intent
 
-import androidx.appcompat.app.AppCompatActivity // 추가
-import androidx.fragment.app.Fragment // 추가
 
 
 class Home : ComponentActivity() {
