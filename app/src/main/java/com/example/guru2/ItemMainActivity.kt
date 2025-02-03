@@ -1,5 +1,6 @@
 package com.example.guru2
 
+<<<<<<< Updated upstream
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -32,3 +33,7 @@ class ItemMainActivity : AppCompatActivity() {
         }
     }
 }*/
+=======
+class ItemMainActivity {
+}
+>>>>>>> Stashed changes
