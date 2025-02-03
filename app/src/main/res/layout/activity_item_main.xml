@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!-- 상단 툴바 -->
+    <!-- 물품 관리 상단 툴바 -->
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/materialToolbar"
         android:layout_width="match_parent"
@@ -66,24 +66,24 @@
                 android:textColor="#FFFFFF" />
 
             <!-- 청소용품 버튼 -->
-            <Button
+            <ImageButton
                 android:id="@+id/btn_clean"
                 android:layout_width="92dp"
                 android:layout_height="34dp"
                 android:layout_marginRight="6dp"
 
-                android:background="@drawable/button_round"
+                android:background="@drawable/clean"
                 android:text="청소용품"
                 android:textColor="#FFFFFF" />
 
             <!-- 생활용품 버튼 -->
-            <Button
+            <ImageButton
                 android:id="@+id/btn_daily"
                 android:layout_width="92dp"
                 android:layout_height="34dp"
                 android:layout_marginRight="6dp"
 
-                android:background="@drawable/button_round"
+                android:background="@drawable/daily"
                 android:text="생활용품"
                 android:textColor="#FFFFFF" />
 
@@ -100,36 +100,6 @@
         </LinearLayout>
     </android.widget.HorizontalScrollView>
 
-    <!-- 구매 필요 체크박스 -->
-    <CheckBox
-        android:id="@+id/checkBox_needeed"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="16dp"
-        android:text="구매 필요"
-        app:layout_constraintBottom_toTopOf="@+id/recyclerView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.473"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView"
-        app:layout_constraintVertical_bias="0.351" />
-
-    <!-- 구매 완료 체크박스 -->
-    <CheckBox
-        android:id="@+id/checkBox_completed"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="16dp"
-        android:text="구매 완료"
-
-        app:layout_constraintBottom_toTopOf="@+id/recyclerView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.473"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox_needeed" />
-
     <!-- 물품 목록 (RecyclerView) -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
@@ -140,13 +110,12 @@
         android:scrollbars="vertical"
         android:visibility="visible"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        app:layout_constraintBottom_toTopOf="@id/frameLayout"
         app:layout_constraintEnd_toStartOf="@+id/horizontalScrollView"
+        app:layout_constraintHorizontal_bias="0.479"
         app:layout_constraintStart_toEndOf="@+id/horizontalScrollView"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox_completed"
-        app:layout_constraintBottom_toTopOf="@id/frameLayout"/>
-
-
-
+        app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView"
+        app:layout_constraintVertical_bias="0.0" />
 
     <!-- 하단 프레임 레이아웃 -->
     <FrameLayout
@@ -162,6 +131,7 @@
             android:layout_height="80dp"
             android:src="@drawable/white_box" />
 
+        <!-- 홈 버튼 -->
         <ImageButton
             android:id="@+id/homeImage"
             android:layout_width="wrap_content"
@@ -171,6 +141,7 @@
             android:background="@android:color/transparent"
             android:src="@drawable/home_not_show" />
 
+        <!-- 물품 버튼 -->
         <ImageButton
             android:id="@+id/itemImage"
             android:layout_width="wrap_content"
@@ -180,6 +151,7 @@
             android:background="@android:color/transparent"
             android:src="@drawable/thing_show" />
 
+        <!-- 회계 버튼 -->
         <ImageButton
             android:id="@+id/accountingImage"
             android:layout_width="wrap_content"
@@ -191,25 +163,19 @@
 
     </FrameLayout>
 
-
     <!-- 추가 버튼 (FloatingActionButton) -->
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab_add_item"
-        android:layout_width="72dp"
-        android:layout_height="72dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_margin="16dp"
-
-        android:layout_marginTop="447dp"
-        android:layout_marginEnd="36dp"
-        android:layout_marginBottom="20dp"
-        android:background="#FF7043"
-        android:tint="@color/white"
+        android:src="@drawable/add"
+        app:maxImageSize="30dp"
+        app:backgroundTint="@color/orange"
         app:layout_constraintBottom_toTopOf="@+id/frameLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView"
-        app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@drawable/add" />
-
+        app:layout_constraintVertical_bias="1.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

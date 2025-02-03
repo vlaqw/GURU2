@@ -4,19 +4,14 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:padding="16dp">
-   <TextView
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:textSize="20dp"
-       android:text="물품 추가"/>
+
     <!-- 물품 이름 입력 -->
     <EditText
         android:id="@+id/et_item_name"
-        android:layout_marginTop="7dp"
+        android:layout_marginTop="8dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:maxLines="1"
-        android:textSize="14sp"
         android:hint="물품 이름"
         android:inputType="text" />
 
@@ -24,58 +19,38 @@
     <Spinner
         android:id="@+id/spinner_category"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="7dp" />
+        android:layout_height="38dp"
+        android:layout_marginTop="8dp" />
 
     <!-- 수량 입력 -->
     <EditText
         android:id="@+id/et_quantity"
-        android:layout_marginTop="7dp"
+        android:layout_marginTop="8dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:maxLines="1"
-        android:textSize="14sp"
         android:hint="수량"
         android:inputType="number" />
 
     <!-- 메모 입력 -->
     <EditText
         android:id="@+id/et_memo"
-        android:layout_marginTop="7dp"
+        android:layout_marginTop="8dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:maxLines="1"
-        android:textSize="14sp"
         android:hint="메모"
         android:inputType="text" />
-<LinearLayout
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal">
+
     <!-- 등록 버튼 -->
-    <Button
-        android:id="@+id/btn_add"
-        android:layout_gravity="center"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="2dp"
-        android:layout_marginLeft="20dp"
-        android:text="등록"
-        android:background="@drawable/button_round"
-        android:textColor="#FFFFFF" />
+ <Button
+     android:id="@+id/btn_add"
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content"
+     android:layout_gravity="center"
+     android:layout_marginTop="16dp"
+     android:background="@drawable/button_round"
+     android:text="등록"
+     android:textColor="#FFFFFF" />
 
-    <!-- 취소 버튼 -->
-    <Button
-        android:id="@+id/btn_cancel"
-        android:layout_gravity="center"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="2dp"
-        android:layout_marginLeft="120dp"
-        android:text="취소"
-        android:background="@drawable/button_round"
-        android:textColor="#FFFFFF" />
-
-
-</LinearLayout>
 </LinearLayout>
