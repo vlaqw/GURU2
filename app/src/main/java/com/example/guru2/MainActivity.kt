@@ -8,7 +8,6 @@ import android.widget.Button
 
 class MainActivity : ComponentActivity() {
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.homelogin);
@@ -34,8 +33,6 @@ class MainActivity : ComponentActivity() {
 
             }
         })
-
-
 
     }
 }
