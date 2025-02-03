@@ -6,7 +6,6 @@ import android.graphics.drawable.GradientDrawable
 import android.os.Bundle
 import android.util.TypedValue
 import android.view.Gravity
-import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
@@ -26,7 +25,7 @@ import java.util.Calendar
 
 class AccountMain: AppCompatActivity(){
 
-    private val jdbcUrl = "jdbc:mysql://192.168.219.108:3306/check_list_db"
+    private val jdbcUrl = "jdbc:mysql://192.168.219.108:3306/check_list_db" // ipv4 수정 필요
     private val dbUser = "root"
     private val dbPassword = "123456"
 
@@ -75,17 +74,12 @@ class AccountMain: AppCompatActivity(){
 
         //홈버튼을 눌렀을 때,
         homeButton.setOnClickListener {
-            /*val homeIntent = Intent(this@AccountMain, Home::class.java)
-            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
-            intent.putExtra("TEAM_NAME", teamName) // 팀 이름을 추가
-            intent.putExtra("NICKNAME", initialNickname) // 닉네임을 추가
-            startActivity(homeIntent)*/
             val homeIntent = Intent(this@AccountMain, Home::class.java)
             homeIntent.flags = Intent.FLAG_ACTIVITY_REORDER_TO_FRONT  // 기존 액티비티 유지
             startActivity(homeIntent)
         }
 
-        //물품 페이지로 이동...
+        //물품 페이지로 이동
         itemButton.setOnClickListener {
             val intent = Intent(this@AccountMain, ItemMain::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
