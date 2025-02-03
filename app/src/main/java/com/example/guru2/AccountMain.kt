@@ -230,9 +230,9 @@ class AccountMain: AppCompatActivity(){
     private fun updateAmountPerPerson() {
         if (teamMemberCount > 0) {
             val amountPerPerson = totalAmount / teamMemberCount
-            amountPerPersonTextView.text = "인당 금액: ${amountPerPerson}원"
+            amountPerPersonTextView.text = "${amountPerPerson}원"
         } else {
-            amountPerPersonTextView.text = "인당 금액: 0원" // 팀원이 없을 경우
+            amountPerPersonTextView.text = "0원" // 팀원이 없을 경우
         }
     }
 
