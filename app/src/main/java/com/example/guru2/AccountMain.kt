@@ -12,13 +12,23 @@ import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.LinearLayout
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.widget.addTextChangedListener
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import java.sql.DriverManager
 import java.util.Calendar
 
 class AccountMain: AppCompatActivity(){
+
+    private val jdbcUrl = "jdbc:mysql://192.168.219.108:3306/check_list_db"
+    private val dbUser = "root"
+    private val dbPassword = "123456"
 
     lateinit var addItemButton: FloatingActionButton // 항목 추가 버튼
     lateinit var itemsContainer: LinearLayout // 항목들이 추가될 컨테이너
@@ -27,6 +37,7 @@ class AccountMain: AppCompatActivity(){
     lateinit var yearMonthTextView: TextView // 현재의 연도와 월을 표시하는 TextView
 
     private var totalAmount = 0.0 // 총액을 저장하는 변수
+    private var teamMemberCount = 0 // 팀원 수를 저장하는 변수 추가
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,9 +47,6 @@ class AccountMain: AppCompatActivity(){
         val itemButton = findViewById<ImageButton>(R.id.itemImage) //물품 이미지
         val teamName = intent.getStringExtra("TEAM_NAME") ?: return  //인텐트를 통해..Login에서 받아온 팀 이름.
         val initialNickname = intent.getStringExtra("NICKNAME") ?: return //인텐트를 통해..Login에서 받아온 팀 닉네임..
-
-
-
 
         addItemButton = findViewById(R.id.addItemButton)
         itemsContainer = findViewById(R.id.itemsContainer)
@@ -73,6 +81,12 @@ class AccountMain: AppCompatActivity(){
             intent.putExtra("TEAM_NAME", teamName) // 팀 이름을 추가
             intent.putExtra("NICKNAME", initialNickname) // 닉네임을 추가
             startActivity(intent)
+        }
+
+        // 팀원 수를 구한 후 인당 금액을 계산 (첫 로드 시에만 호출)
+        getTeamMemberCount(teamName) { count ->
+            teamMemberCount = count // 팀원 수 저장
+            updateAmountPerPerson() // 팀원 수를 구한 후, 금액을 계산
         }
     }
 
@@ -173,6 +187,8 @@ class AccountMain: AppCompatActivity(){
 
             // 항목 삭제
             itemsContainer.removeView(itemLayout)
+            // 총액 갱신 후 인당 금액 계산
+            updateTotalAmount()  // 금액이 바뀔 때마다 총액을 갱신하는 함수 호출
 
         }
 
@@ -205,5 +221,52 @@ class AccountMain: AppCompatActivity(){
 
         // 총액 표시
         totalAmountTextView.text = "총액: ${totalAmount}원"
+
+        // 인당 금액 업데이트 (팀원 수가 이미 구해졌다면 바로 처리)
+        updateAmountPerPerson()
     }
+
+    // 팀원 수에 맞춰 인당 금액을 업데이트하는 함수
+    private fun updateAmountPerPerson() {
+        if (teamMemberCount > 0) {
+            val amountPerPerson = totalAmount / teamMemberCount
+            amountPerPersonTextView.text = "인당 금액: ${amountPerPerson}원"
+        } else {
+            amountPerPersonTextView.text = "인당 금액: 0원" // 팀원이 없을 경우
+        }
+    }
+
+    private fun getTeamMemberCount(teamName: String, callback: (Int) -> Unit) {
+        CoroutineScope(Dispatchers.IO).launch {
+            try {
+                // MySQL 연결 및 팀원 수 조회
+                Class.forName("com.mysql.jdbc.Driver")
+                DriverManager.getConnection(jdbcUrl, dbUser, dbPassword).use { connection ->
+                    val sql = "SELECT COUNT(*) AS team_member_count FROM check_list WHERE team_name = ?"
+                    val statement = connection.prepareStatement(sql)
+                    statement.setString(1, teamName)
+
+                    val resultSet = statement.executeQuery()
+                    var memberCount = 0
+                    if (resultSet.next()) {
+                        memberCount = resultSet.getInt("team_member_count")
+                    }
+
+                    resultSet.close()
+                    statement.close()
+
+                    // UI 업데이트는 메인 스레드에서
+                    withContext(Dispatchers.Main) {
+                        callback(memberCount)
+                    }
+                }
+            } catch (e: Exception) {
+                e.printStackTrace()
+                withContext(Dispatchers.Main) {
+                    Toast.makeText(this@AccountMain, "팀원 수를 불러오는 중 오류 발생!", Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
+    }
+
 }
