@@ -95,7 +95,7 @@
         android:background="?android:selectableItemBackground"
         android:contentDescription="수정"
         android:src="@drawable/ic_arrow_left_16"
-        android:tint="#666666" />
+            app:tint="#666666" />
 
         <!-- 구매여부 토글버튼 -->
         <ToggleButton
