@@ -66,24 +66,24 @@
                 android:textColor="#FFFFFF" />
 
             <!-- 청소용품 버튼 -->
-            <Button
+            <ImageButton
                 android:id="@+id/btn_clean"
                 android:layout_width="92dp"
                 android:layout_height="34dp"
                 android:layout_marginRight="6dp"
 
-                android:background="@drawable/button_round"
+                android:background="@drawable/clean"
                 android:text="청소용품"
                 android:textColor="#FFFFFF" />
 
             <!-- 생활용품 버튼 -->
-            <Button
+            <ImageButton
                 android:id="@+id/btn_daily"
                 android:layout_width="92dp"
                 android:layout_height="34dp"
                 android:layout_marginRight="6dp"
 
-                android:background="@drawable/button_round"
+                android:background="@drawable/daily"
                 android:text="생활용품"
                 android:textColor="#FFFFFF" />
 
@@ -100,37 +100,13 @@
         </LinearLayout>
     </android.widget.HorizontalScrollView>
 
-    <!-- 구매 필요 체크박스 -->
-    <CheckBox
-        android:id="@+id/checkBox_needeed"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="16dp"
-        android:text="구매 필요"
-        app:layout_constraintBottom_toTopOf="@+id/recyclerView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.473"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView"
-        app:layout_constraintVertical_bias="0.351" />
-
-    <!-- 구매 완료 체크박스 -->
-    <CheckBox
-        android:id="@+id/checkBox_completed"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="16dp"
-        android:text="구매 완료"
-
-        app:layout_constraintBottom_toTopOf="@+id/recyclerView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.473"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox_needeed" />
-
     <!-- 물품 목록 (RecyclerView) -->
+
+
+    <!-- 하단 프레임 레이아웃 -->
+
+
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
@@ -140,15 +116,13 @@
         android:scrollbars="vertical"
         android:visibility="visible"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        app:layout_constraintBottom_toTopOf="@id/frameLayout"
         app:layout_constraintEnd_toStartOf="@+id/horizontalScrollView"
+        app:layout_constraintHorizontal_bias="0.479"
         app:layout_constraintStart_toEndOf="@+id/horizontalScrollView"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox_completed"
-        app:layout_constraintBottom_toTopOf="@id/frameLayout"/>
+        app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView"
+        app:layout_constraintVertical_bias="0.0" />
 
-
-
-
-    <!-- 하단 프레임 레이아웃 -->
     <FrameLayout
         android:id="@+id/frameLayout"
         android:layout_width="match_parent"

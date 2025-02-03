@@ -22,8 +22,6 @@ class ItemMain : AppCompatActivity() {
     private lateinit var adapter: ItemAdapter
     private lateinit var databaseHelper: DatabaseHelper
     private val itemList = mutableListOf<Item>()
-    private lateinit var chkNeedeed : CheckBox
-    private lateinit var chkCompleted : CheckBox
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,8 +29,6 @@ class ItemMain : AppCompatActivity() {
 
         recyclerView = findViewById(R.id.recyclerView)
         val fab: FloatingActionButton = findViewById(R.id.fab_add_item)
-        chkNeedeed = findViewById(R.id.checkBox_needeed)
-        chkCompleted = findViewById(R.id.checkBox_completed)
         val homeButton = findViewById<ImageButton>(R.id.homeImage) //물품 이미지
         val accountButton = findViewById<ImageButton>(R.id.accountingImage) //회계 이미지
 
@@ -78,36 +74,14 @@ class ItemMain : AppCompatActivity() {
             showAddItemDialog()
         }
 
-        chkNeedeed.setOnCheckedChangeListener { _, isChecked ->
-            if (isChecked) {
-                // 구매 필요 목록 필터링
-                filterItemsByCompletion(false)
-                chkCompleted.isChecked = false  // 구매 완료 체크박스 해제
-            } else {
-                // 체크박스가 해제되면 모든 아이템을 다시 보여줌
-                adapter.updateList(itemList)
-            }
-        }
-
-        chkCompleted.setOnCheckedChangeListener { _, isChecked ->
-            if (isChecked) {
-                // 구매 완료 목록 필터링
-                filterItemsByCompletion(true)
-                chkNeedeed.isChecked = false  // 구매 필요 체크박스 해제
-            } else {
-                // 체크박스가 해제되면 모든 아이템을 다시 보여줌
-                adapter.updateList(itemList)
-            }
-        }
-
         adapter = ItemAdapter(itemList, databaseHelper)
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = adapter
 
         val btnAll = findViewById<ImageButton>(R.id.btn_all)
         val btnFood = findViewById<ImageButton>(R.id.btn_food)
-        val btnDaily = findViewById<Button>(R.id.btn_daily)
-        val btnClean = findViewById<Button>(R.id.btn_clean)
+        val btnDaily = findViewById<ImageButton>(R.id.btn_daily)
+        val btnClean = findViewById<ImageButton>(R.id.btn_clean)
         val btnKitchen = findViewById<ImageButton>(R.id.btn_kitchen)
 
         btnAll.setOnClickListener {
