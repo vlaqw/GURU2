@@ -5,9 +5,6 @@
     android:orientation="vertical"
     android:padding="16dp">
 
-
-
-
     <!-- 카테고리 선택 -->
     <Spinner
         android:id="@+id/spinner_category"
@@ -58,7 +55,7 @@
         android:layout_marginTop="16dp"
         android:orientation="horizontal">
 
-        ]<!-- 수정 버튼 -->
+        <!-- 수정 버튼 -->
         <Button
             android:id="@+id/btn_edit"
             android:layout_width="wrap_content"
