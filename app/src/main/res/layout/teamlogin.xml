@@ -18,7 +18,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="룸메이트와 함깨 관리할 팀을 만들어주세요\n"
+        android:text="룸메이트와 함께 관리할 팀을 만들어주세요\n"
         android:textColor="#121212"
         android:textSize="14dp" />
 
