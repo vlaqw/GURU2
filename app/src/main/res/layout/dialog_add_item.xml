@@ -5,8 +5,6 @@
     android:orientation="vertical"
     android:padding="8dp">
 
-
-
     <!-- 카테고리 선택 -->
     <Spinner
         android:id="@+id/spinner_category"
@@ -15,6 +13,7 @@
         android:layout_marginRight="200dp"
         android:layout_height="38dp"
         android:layout_marginTop="8dp" />
+    
     <!-- 물품 이름 입력 -->
     <EditText
         android:id="@+id/et_item_name"
@@ -49,7 +48,7 @@
         android:inputType="text" />
 
     <!-- 등록 버튼 -->
- <Button
+    <Button
      android:id="@+id/btn_add"
      android:layout_width="wrap_content"
      android:layout_height="wrap_content"
