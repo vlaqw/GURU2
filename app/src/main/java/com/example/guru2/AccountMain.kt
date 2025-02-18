@@ -25,7 +25,7 @@ import java.util.Calendar
 
 class AccountMain: AppCompatActivity(){
 
-    private val jdbcUrl = "jdbc:mysql://192.168.219.108:3306/check_list_db" // ipv4 수정 필요
+    private val jdbcUrl = "jdbc:mysql://192.168.45.154:3306/check_list_db" // ipv4 수정 필요
     private val dbUser = "root"
     private val dbPassword = "123456"
 
