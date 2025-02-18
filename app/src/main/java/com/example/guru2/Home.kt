@@ -14,7 +14,7 @@ import android.content.Intent
 
 
 class Home : ComponentActivity() {
-    private val jdbcUrl = "jdbc:mysql://192.168.45.85:3306/check_list_db"
+    private val jdbcUrl = "jdbc:mysql://192.168.45.154:3306/check_list_db"
     //192.168.45.85
     private val dbUser = "root"
     private val dbPassword = "123456"

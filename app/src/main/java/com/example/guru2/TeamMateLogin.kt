@@ -22,7 +22,7 @@ class TeamMateLogin : ComponentActivity() {
 
 
 
-   private val jdbcUrl = "jdbc:mysql://192.168.219.106:3306/check_list_db" // 서버 IP 및 포트 설정
+   private val jdbcUrl = "jdbc:mysql://192.168.45.154:3306/check_list_db" // 서버 IP 및 포트 설정
 
     //사소한 사항이나, 이로 인해 오류 확인 후 수정까지 4시간이 걸림... 꼭 확인!!
     //cmd 들어가서, 나의 ipv4 주소 확인 후 꼭!! 수정하기.
